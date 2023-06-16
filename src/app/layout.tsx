@@ -1,5 +1,4 @@
 import { Inter } from 'next/font/google';
-import styled from '@emotion/styled';
 
 const inter = Inter({ subsets: ['latin'] });
 
