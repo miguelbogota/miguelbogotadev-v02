@@ -1,34 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Miguel Bogota's Personal Portfolio
 
-## Getting Started
+This is my personal portfolio website. It is a single page application built with Next js 13.
 
-First, run the development server:
+## [Live Website](https://miguelbogotadev-v02.web.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Author
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+_Miguel Bogota_
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Find me around the web 🌎
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p>
+  <a href="https://dev.to/miguelbogota">
+    <img height="30" src="https://raw.githubusercontent.com/miguelbogota/miguelbogota/master/images/dev.png" alt="Dev.to link to profile" />
+  </a>&nbsp;&nbsp;
 
-## Learn More
+  <a href="https://instagram.com/migue_bogota/">
+    <img height="30" src="https://raw.githubusercontent.com/miguelbogota/miguelbogota/master/images/instagram.jpg" alt="Instagram link to profile" />
+  </a>&nbsp;&nbsp;
 
-To learn more about Next.js, take a look at the following resources:
+  <a href="https://linkedin.com/in/miguelbogota">
+    <img height="30" src="https://raw.githubusercontent.com/miguelbogota/miguelbogota/master/images/linkedin.png" alt="LinkedIn link to profile" />
+  </a>&nbsp;&nbsp;
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  <a href="https://github.com/miguelbogota">
+    <img height="30" src="https://raw.githubusercontent.com/miguelbogota/miguelbogota/master/images/github.png" alt="GitHub link to profile" />
+  </a>
+</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+See also the list of [contributors](https://github.com/miguelbogota/miguelbogotadev-v02/graphs/contributors) who participated in this project.
