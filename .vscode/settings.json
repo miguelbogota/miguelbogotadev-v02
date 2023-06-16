@@ -1,0 +1,15 @@
+{
+  "editor.rulers": [100],
+  "editor.formatOnSave": true,
+  "cSpell.diagnosticLevel": "Warning",
+  "javascript.suggestionActions.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

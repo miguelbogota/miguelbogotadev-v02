@@ -1,0 +1,20 @@
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Compiled output
+dist
+tmp
+out-tsc
+bazel-out
+.turbo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Languages
+*.ico
+*.log
+*.lock
