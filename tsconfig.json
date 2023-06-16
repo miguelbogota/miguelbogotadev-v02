@@ -16,7 +16,11 @@
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["./src/*"]
+      "@app-components/*": ["src/components/*"],
+      "@app-hooks/*": ["src/hooks/*"],
+      "@app-theme": ["src/theme"],
+      "@app-env": ["src/environment"],
+      "@app-test/*": ["test/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
