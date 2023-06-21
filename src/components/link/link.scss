@@ -1,2 +1,43 @@
+@use 'src/styles/_mixins.scss';
+
 .link {
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 0px var(--space-2);
+  margin-right: var(--space-1);
+
+  &:last-child {
+    margin-right: var(--space-0);
+  }
+
+  &:nth-last-child(2) {
+    margin-right: var(--space-3);
+  }
+
+  &.active {
+    border-bottom: 2px solid var(--text-primary);
+  }
+
+  @include mixins.small-device {
+    width: 100%;
+    margin: var(--space-1) 0px;
+
+    &:last-child {
+      margin: var(--space-0);
+    }
+
+    &:nth-last-child(2) {
+      margin: var(--space-3) 0px;
+    }
+
+    &.active {
+      border-bottom: none;
+    }
+  }
 }

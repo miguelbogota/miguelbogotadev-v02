@@ -45,27 +45,29 @@
   --space-4: 2rem;
   --space-5: 3.5rem;
   --space-6: 5rem;
+  --space-7: 7rem;
+  --space-8: 9rem;
 
-  --appbar: 1100;
+  --navigation: 1100;
   --drawer: 1200;
   --modal: 1300;
   --snackbar: 1400;
   --tooltip: 1500;
 
   @media (prefers-color-scheme: light) {
-    --text-primary: var(--scale-5);
+    --text-primary: var(--scale-7);
     --text-secondary: var(--scale-4);
     --text-disabled: var(--scale-3);
-    --text-inverted: var(--scale-3);
+    --text-inverted: var(--scale-2);
     --background-main: var(--white);
     --background-sheet: var(--scale-1);
   }
 
   @media (prefers-color-scheme: dark) {
-    --text-primary: var(--scale-3);
+    --text-primary: var(--scale-1);
     --text-secondary: var(--scale-4);
     --text-disabled: var(--scale-5);
-    --text-inverted: var(--scale-5);
+    --text-inverted: var(--scale-6);
     --background-main: var(--black);
     --background-sheet: var(--scale-7);
   }

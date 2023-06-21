@@ -1,10 +1,11 @@
 html,
 body,
 #__next {
-  font-family: 'Inter', Segoe UI, Roboto, -apple-system, Oxygen, Ubuntu, sans-serif;
+  font-family: Barlow, Segoe UI, Roboto, -apple-system, Oxygen, Ubuntu, sans-serif;
   height: 100%;
   margin: 0px;
   padding: 0px;
   background-color: var(--background-main);
-  color: var(--text-primary);
+  color: var(--text-secondary);
+  scroll-behavior: smooth;
 }

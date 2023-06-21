@@ -1,0 +1,32 @@
+@use 'src/styles/_mixins.scss';
+
+#profile {
+  align-items: center;
+
+  @include mixins.small-device {
+    align-items: flex-start;
+  }
+
+  .profile-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr;
+    padding-top: var(--space-6);
+
+    @include mixins.small-device {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      margin-bottom: 0px;
+    }
+
+    .information {
+      & > img {
+        border-radius: 50%;
+        margin-bottom: var(--space-3);
+      }
+    }
+
+    .pet {
+    }
+  }
+}
