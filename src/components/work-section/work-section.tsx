@@ -5,7 +5,7 @@ import ProfilePicture from 'public/profile-picture.png';
 
 const mockedExperiences = [
   {
-    id: 'aosp',
+    id: 'aosp-1',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -16,7 +16,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-2',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -27,7 +27,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-3',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -38,7 +38,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-4',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -49,7 +49,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-5',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -60,7 +60,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-6',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -71,7 +71,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-7',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -82,7 +82,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-8',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -93,7 +93,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-9',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -104,7 +104,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-10',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -115,7 +115,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-11',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -126,7 +126,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-12',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -137,7 +137,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-13',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -148,7 +148,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-14',
     name: 'AOSP With A Very Long Name That Will Break The Layout',
     isActive: false,
     description: 'Android Open Source Project',
@@ -159,7 +159,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-15',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -170,7 +170,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-16',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -181,7 +181,7 @@ const mockedExperiences = [
     startedAt: new Date('2019-01-01'),
   },
   {
-    id: 'aosp',
+    id: 'aosp-17',
     name: 'AOSP',
     isActive: false,
     description: 'Android Open Source Project',
@@ -209,7 +209,7 @@ export function WorkSection() {
 
         <div className="experience">
           {mockedExperiences.map(({ id, name, imageUrls }) => (
-            <ExperienceCard key={id} href={`/work/${id}`} name={name} imageUrl={imageUrls[0]} />
+            <ExperienceCard key={id} id={id} name={name} imageUrl={imageUrls[0]} />
           ))}
         </div>
       </div>
