@@ -1,8 +1,8 @@
-import { ContactSection } from '@app-components/contact-section/contact';
 import { Container } from '@app-components/container/container';
 import { Footer } from '@app-components/footer/footer';
 import { Navigation } from '@app-components/navigation/navigation';
 import { ProfileSection } from '@app-components/profile-section/profile-section';
+import { SocialSection } from '@app-components/social-section/social-section';
 import { WorkSection } from '@app-components/work-section/work-section';
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <Container as="main">
         <ProfileSection />
         <WorkSection />
-        <ContactSection />
+        <SocialSection />
       </Container>
       <Footer />
     </>

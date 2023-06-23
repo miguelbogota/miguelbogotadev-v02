@@ -27,10 +27,14 @@
   }
 
   & > .content {
+    --radius: 2%;
+
     display: block;
     background-color: var(--background-sheet);
     width: 100dvw;
     height: 87dvh;
     z-index: calc(var(--modal) + 1);
+    border-radius: var(--radius) var(--radius) 0px 0px;
+    overflow: auto;
   }
 }

@@ -1,18 +1,18 @@
-#contact {
+#social {
   align-items: center;
 
-  .contact-container {
+  .social-container {
     width: 100%;
 
     .content {
       width: var(--content-width);
       margin: 0px auto;
 
-      .social {
+      .social-networks {
         margin: 0px 0px var(--space-2);
         color: var(--text-primary);
 
-        &-link {
+        .social-link {
           padding: 4px;
           margin: 0px 6px;
           font-size: 2.2rem;

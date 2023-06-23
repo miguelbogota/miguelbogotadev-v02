@@ -31,8 +31,8 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
     <motion.div
       className="backdrop"
       transition={{
-        ease: 'easeInOut',
-        duration: 0.2,
+        ease: 'ease',
+        duration: 0.1,
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

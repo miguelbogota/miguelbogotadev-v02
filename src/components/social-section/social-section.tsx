@@ -1,4 +1,4 @@
-import './contact-section.scss';
+import './social-section.scss';
 
 const links = [
   {
@@ -28,11 +28,11 @@ const links = [
   },
 ];
 
-/** Section with the contact information. */
-export function ContactSection() {
+/** Section with the social information. */
+export function SocialSection() {
   return (
-    <section id="contact">
-      <div className="contact-container">
+    <section id="social">
+      <div className="social-container">
         <div className="content">
           <h2>Find me Around the Web</h2>
           <p className="overline">
@@ -41,7 +41,7 @@ export function ContactSection() {
             social media.
           </p>
 
-          <div className="social">
+          <div className="social-networks">
             {links.map(({ label, icon, link }) => (
               <a
                 className="social-link"
