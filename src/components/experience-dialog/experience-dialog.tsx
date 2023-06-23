@@ -30,6 +30,10 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
   const backdrop = (
     <motion.div
       className="backdrop"
+      transition={{
+        ease: 'easeInOut',
+        duration: 0.2,
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -40,10 +44,18 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
   const content = (
     <motion.div
       className="content"
-      transition={{ ease: [0.16, 1, 0.29, 0.99], duration: 0.4 }}
-      initial={{ y: '2vh', opacity: 1 }}
+      transition={{
+        ease: [0.16, 1, 0.29, 0.99],
+        opacity: {
+          duration: 0.01,
+        },
+        y: {
+          duration: 0.25,
+        },
+      }}
+      initial={{ y: '1.7vh', opacity: 1 }}
       animate={{ y: '0', opacity: 1 }}
-      exit={{ y: '2vh', opacity: 0 }}
+      exit={{ y: '1.7vh', opacity: 0 }}
     >
       {children}
     </motion.div>
