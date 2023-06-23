@@ -1,7 +1,8 @@
 import { ExperienceDetails } from '@app-components/experience-details/experience-details';
+import { ExperienceDialog } from '@app-components/experience-dialog/experience-dialog';
 import ProfilePicture from 'public/profile-picture.png';
 
-export default function Work(props: { params: { workId: string } }) {
+export default function WorkModalPage(props: { params: { workId: string } }) {
   const { params } = props;
 
   const work = {
@@ -16,5 +17,9 @@ export default function Work(props: { params: { workId: string } }) {
     startedAt: new Date('2019-01-01'),
   };
 
-  return <ExperienceDetails {...work} />;
+  return (
+    <ExperienceDialog open onCloseRedirect="/">
+      <ExperienceDetails {...work} />
+    </ExperienceDialog>
+  );
 }

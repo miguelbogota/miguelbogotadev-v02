@@ -1,11 +1,13 @@
 import './global.scss';
 
+import { type ReactNode } from 'react';
+
 export const metadata = {
   title: 'Miguel Bogota',
   description: 'Software Developer',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children, modal }: { children: ReactNode; modal: ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -18,7 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {modal}
+      </body>
     </html>
   );
 }

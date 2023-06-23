@@ -1,0 +1,36 @@
+@use 'src/styles/_functions.scss';
+
+.experience-dialog {
+  display: none;
+
+  &[open] {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--modal);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  & > .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: functions.reduce-transparency(var(--scale-7), 100%, 10%);
+  }
+
+  & > .content {
+    display: block;
+    background-color: var(--background-sheet);
+    width: 100dvw;
+    height: 87dvh;
+    z-index: calc(var(--modal) + 1);
+  }
+}
