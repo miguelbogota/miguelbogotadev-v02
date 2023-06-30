@@ -1,20 +1,10 @@
 import './experience-details.scss';
 
 import { Container } from '@app-components/container/container';
-import Image, { type StaticImageData } from 'next/image';
+import { type Experience } from '@app-lib/experience';
+import Image from 'next/image';
 
-export type ExperienceDetailsProps = {
-  id: string;
-  displayName: string;
-  isActive: boolean;
-  description: string;
-  role: string;
-  imageUrls: (string | StaticImageData)[];
-  technologies: string[];
-  gitUrl?: string;
-  webUrl?: string;
-  startedAt: Date;
-};
+export type ExperienceDetailsProps = Experience;
 
 const IconLink = ({ url, label, icon }: { url?: string; label: string; icon: string }) => (
   <a
@@ -29,17 +19,8 @@ const IconLink = ({ url, label, icon }: { url?: string; label: string; icon: str
 );
 
 export function ExperienceDetails(props: ExperienceDetailsProps) {
-  const {
-    displayName,
-    isActive,
-    description,
-    role,
-    imageUrls,
-    gitUrl,
-    webUrl,
-    startedAt,
-    technologies,
-  } = props;
+  const { name, isActive, description, role, imageUrls, gitUrl, webUrl, startedAt, technologies } =
+    props;
 
   const roleAndDate = `${role} — ${startedAt.getFullYear()}`;
 
@@ -55,7 +36,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
     <Container className="experience-details">
       <div className="headline">
         <div className="info">
-          <h1>{displayName}</h1>
+          <h1>{name}</h1>
           <div className="role">{roleAndDate}</div>
           {isActive && <div className="active">Currently Working Here</div>}
         </div>
@@ -67,13 +48,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
       </div>
 
       <div className="images">
-        <Image
-          className="main-image"
-          src={imageUrls[0]}
-          alt={displayName}
-          width={800}
-          height={800}
-        />
+        <Image className="main-image" src={imageUrls[0]} alt={name} width={800} height={800} />
 
         <div className="preview-images">
           {imageUrls.map((url, index) => (
@@ -81,7 +56,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
               className="previe-image"
               key={index}
               src={url}
-              alt={displayName}
+              alt={name}
               width={200}
               height={200}
             />
@@ -90,20 +65,20 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
 
         <div className="description">
           {description.split('\n').map((paragraph, index) => (
-            <p className="overline" key={index}>
-              {paragraph}
-            </p>
+            <p key={index}>{paragraph}</p>
           ))}
         </div>
 
-        <div className="technologies">
-          <h2>Technologies</h2>
-          {technologies.map((technology, index) => (
-            <span className="technology" key={index}>
-              #{technology}
-            </span>
-          ))}
-        </div>
+        {(technologies?.length ?? 0) > 0 && (
+          <div className="technologies">
+            <h2>Technologies</h2>
+            {technologies?.map((technology, index) => (
+              <span className="technology" key={index}>
+                #{technology}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </Container>
   );

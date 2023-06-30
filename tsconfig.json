@@ -19,6 +19,7 @@
     "paths": {
       "@app-components/*": ["src/components/*"],
       "@app-hooks/*": ["src/hooks/*"],
+      "@app-lib/*": ["src/lib/*"],
       "@app-theme": ["src/theme"],
       "@app-env": ["src/environment"],
       "@app-test/*": ["test/*"]

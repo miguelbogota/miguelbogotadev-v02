@@ -1,7 +1,13 @@
-const mockedContent = {};
+import { doc, firestore, getDoc } from '@app-lib/firebase';
 
-export function getContent() {
-  return new Promise<typeof mockedContent>(resolve =>
-    setTimeout(() => resolve(mockedContent), 1000),
-  );
+const docId = 'Oab3bfxAJMdAyUDL2hjI';
+
+export type AppContent = {
+  title: string;
+};
+
+export async function getContent() {
+  const docRef = doc(firestore, 'content', docId);
+  const docSnapshot = await getDoc(docRef);
+  return docSnapshot.data() as AppContent;
 }

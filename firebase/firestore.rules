@@ -1,0 +1,59 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+  	/// --------------- Functions --------------- ///
+    // Is the user signed in?
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    // Is the email of the user verified?
+    function emailVerified() {
+      return request.auth.token.email_verified;
+    }
+    // Does the logged-in user match the requested userId?
+    function isUser(userId) {
+      return request.auth.uid == userId;
+    }
+    // Does the user exist in Firestore?
+    function userExists() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+    // Fetch a user from Firestore
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data
+    }
+    // Fetch a user from Firestore
+    function isUserPublic(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.isPublic == true
+    }
+    // Fetch a user-specific field from Firestore
+    function userEmail(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.email;
+    }
+    // [READ] Data that exists on the Firestore document
+    function existingData() {
+      return resource.data;
+    }
+    // [WRITE] Data that is sent to a Firestore document
+    function incomingData() {
+      return request.resource.data;
+    }
+
+		/// --------------- Rules --------------- ///
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /experience/{jobId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /content/{contentId} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

@@ -23,7 +23,7 @@ const sections = [
 
 /** Navigation bar component. */
 export function Navigation() {
-  const activeSectionId = useScrollSpy({ id: sections.map(section => section.id) });
+  const activeSectionId = useScrollSpy({ id: sections.map((section) => section.id) });
 
   return (
     <nav>
@@ -31,8 +31,8 @@ export function Navigation() {
         <h3>Miguel Bogota</h3>
 
         <div className="navigation-links">
-          {sections.map(section => (
-            <Link key={section.id} href={section.id} active={section.id === activeSectionId}>
+          {sections.map((section) => (
+            <Link key={section.id} href={`#${section.id}`} active={section.id === activeSectionId}>
               {section.label}
             </Link>
           ))}

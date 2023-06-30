@@ -1,11 +1,11 @@
 import './work-section.scss';
 
-import { ExperienceCard } from '@app-components/experience-card/experience-card';
+import { ExperienceList } from '@app-components/experience-list/experience-list';
 import { experienceAction } from 'src/lib/experience';
 
 /** Section with the work tiles. */
 export async function WorkSection() {
-  const experiences = await experienceAction.all();
+  const experiences = await experienceAction.initial();
 
   return (
     <section id="work">
@@ -19,11 +19,7 @@ export async function WorkSection() {
           </p>
         </div>
 
-        <div className="experience">
-          {experiences.map(({ id, displayName, imageUrls }) => (
-            <ExperienceCard key={id} id={id} displayName={displayName} imageUrl={imageUrls[0]} />
-          ))}
-        </div>
+        <ExperienceList experiences={experiences} />
       </div>
     </section>
   );

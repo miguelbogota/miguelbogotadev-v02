@@ -19,7 +19,7 @@ export type UseScrollSpyOptions = {
  * currently in view).
  */
 export function useScrollSpy(options: UseScrollSpyOptions) {
-  const { id, offset = 0 } = options;
+  const { id, offset = 1 } = options;
 
   const prevActiveSectionId = useRef('');
   const [activeSectionId, setActiveSectionId] = useState('');
@@ -29,7 +29,7 @@ export function useScrollSpy(options: UseScrollSpyOptions) {
       const scroll = window.scrollY;
 
       const position = id
-        .map(section => {
+        .map((section) => {
           const element = document.getElementById(section);
 
           if (!element) {
