@@ -1,48 +1,20 @@
 import './social-section.scss';
 
-const links = [
-  {
-    label: 'Email link',
-    icon: 'bx bxs-envelope',
-    link: 'mailto:contact@miguelbogota.dev',
-  },
-  {
-    label: 'GitHub profile link',
-    icon: 'bx bxl-github',
-    link: 'https://github.com/miguelbogota',
-  },
-  {
-    label: 'LinkedIn profile link',
-    icon: 'bx bxl-linkedin-square',
-    link: 'https://linkedin.com/in/miguelbogota',
-  },
-  {
-    label: 'Instagram profile link',
-    icon: 'bx bxl-instagram-alt',
-    link: 'https://instagram.com/migue_bogota',
-  },
-  {
-    label: 'Dev.to profile link',
-    icon: 'bx bxl-dev-to',
-    link: 'https://dev.to/miguelbogota',
-  },
-];
+import { getContent } from '@app-lib/content';
 
 /** Section with the social information. */
-export function SocialSection() {
+export async function SocialSection() {
+  const content = await getContent();
+
   return (
-    <section id="social">
+    <section id={content.social.id}>
       <div className="social-container">
         <div className="content">
-          <h2>Find me Around the Web</h2>
-          <p className="overline">
-            Let me help you with your project.It could be just the thing your brand needs. Send me
-            an email and I'll happily be with you in the shortest time possible or hit me up in my
-            social media.
-          </p>
+          <h2>{content.social.title}</h2>
+          <p className="overline">{content.social.description}</p>
 
           <div className="social-networks">
-            {links.map(({ label, icon, link }) => (
+            {content.social.links.map(({ label, icon, link }) => (
               <a
                 className="social-link"
                 key={label}

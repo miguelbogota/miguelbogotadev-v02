@@ -1,6 +1,10 @@
 import './footer.scss';
 
+import { getContent } from '@app-lib/content';
+
 /** Footer component */
-export function Footer() {
-  return <footer>Designed & Built by Miguel Bogota</footer>;
+export async function Footer() {
+  const content = await getContent();
+
+  return <footer>{content.footer.text}</footer>;
 }

@@ -1,11 +1,11 @@
 import './experience-card.scss';
 
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import NextLink from 'next/link';
 
 export type ExperienceCardProps = {
   id: string;
-  imageUrl: string | StaticImageData;
+  imageUrl: string;
   name: string;
 };
 

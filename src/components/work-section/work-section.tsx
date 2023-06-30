@@ -1,25 +1,24 @@
 import './work-section.scss';
 
 import { ExperienceList } from '@app-components/experience-list/experience-list';
+import { getContent } from '@app-lib/content';
 import { experienceAction } from 'src/lib/experience';
 
 /** Section with the work tiles. */
 export async function WorkSection() {
   const experiences = await experienceAction.initial();
+  const content = await getContent();
 
   return (
-    <section id="work">
+    <section id={content.work.id}>
       <div className="work-container">
         <div className="content">
-          <h2>Work</h2>
+          <h2>{content.work.title}</h2>
 
-          <p className="overline">
-            I care deeply about the code I write and the effect my work has on the product I'm
-            building. You will see below some of the work I'm most proud of.
-          </p>
+          <p className="overline">{content.work.description}</p>
         </div>
 
-        <ExperienceList experiences={experiences} />
+        <ExperienceList experiences={experiences} content={content} />
       </div>
     </section>
   );

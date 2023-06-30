@@ -1,10 +1,14 @@
 import './experience-details.scss';
 
 import { Container } from '@app-components/container/container';
+import { type AppContent } from '@app-lib/content';
 import { type Experience } from '@app-lib/experience';
 import Image from 'next/image';
 
-export type ExperienceDetailsProps = Experience;
+export type ExperienceDetailsProps = {
+  experience: Experience;
+  content: AppContent;
+};
 
 const IconLink = ({ url, label, icon }: { url?: string; label: string; icon: string }) => (
   <a
@@ -19,26 +23,37 @@ const IconLink = ({ url, label, icon }: { url?: string; label: string; icon: str
 );
 
 export function ExperienceDetails(props: ExperienceDetailsProps) {
-  const { name, isActive, description, role, imageUrls, gitUrl, webUrl, startedAt, technologies } =
-    props;
+  const { experience, content } = props;
+  const {
+    id,
+    name,
+    isActive,
+    description,
+    role,
+    imageUrls,
+    gitUrl,
+    webUrl,
+    startedAt,
+    technologies,
+  } = experience;
 
   const roleAndDate = `${role} — ${startedAt.getFullYear()}`;
 
   const gitLink = gitUrl && (
-    <IconLink url={gitUrl} label="GitHub to the project" icon="bx bxl-github" />
+    <IconLink url={gitUrl} label="Link to project's Github" icon="bx bxl-github" />
   );
 
   const webLink = webUrl && (
-    <IconLink url={webUrl} label="Web to the project" icon="bx bx-link-external" />
+    <IconLink url={webUrl} label="Link to project's web" icon="bx bx-link-external" />
   );
 
   return (
-    <Container className="experience-details">
+    <Container id={id} className="experience-details">
       <div className="headline">
         <div className="info">
           <h1>{name}</h1>
           <div className="role">{roleAndDate}</div>
-          {isActive && <div className="active">Currently Working Here</div>}
+          {isActive && <div className="active">{content.details.technologies.active}</div>}
         </div>
 
         <div className="links">
@@ -71,10 +86,10 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
 
         {(technologies?.length ?? 0) > 0 && (
           <div className="technologies">
-            <h2>Technologies</h2>
+            <h2>{content.details.technologies.title}</h2>
             {technologies?.map((technology, index) => (
               <span className="technology" key={index}>
-                #{technology}
+                {technology}
               </span>
             ))}
           </div>

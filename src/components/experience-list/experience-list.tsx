@@ -3,6 +3,7 @@
 import './experience-list.scss';
 
 import { ExperienceCard } from '@app-components/experience-card/experience-card';
+import { type AppContent } from '@app-lib/content';
 import { type Experience } from '@app-lib/experience';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -18,14 +19,38 @@ function format(date: Date) {
 
 export type ExperienceListProps = {
   experiences: Experience[];
+  content: AppContent;
 };
 
 export function ExperienceList(props: ExperienceListProps) {
-  const { experiences: serverExperiences } = props;
+  const { experiences: serverExperiences, content } = props;
 
   const [experiences, setExperiences] = useState(serverExperiences);
   const [isLoading, setIsLoading] = useState(false);
   const [noMoreRecords, setNoMoreRecords] = useState(false);
+
+  const loadMore = () => {
+    setIsLoading(true);
+
+    void fetch(`/api/load-more?after=${format(experiences[experiences.length - 1].startedAt)}`)
+      .then((res) => res.json() as Promise<Experience[] | { lastRecord: boolean }>)
+      .then((newExperiences) => {
+        if ('lastRecord' in newExperiences) {
+          setIsLoading(false);
+          setNoMoreRecords(true);
+          return;
+        }
+
+        setExperiences([
+          ...experiences,
+          ...newExperiences.map((exp) => ({
+            ...exp,
+            startedAt: new Date(exp.startedAt),
+          })),
+        ]);
+        setIsLoading(false);
+      });
+  };
 
   return (
     <>
@@ -37,36 +62,14 @@ export function ExperienceList(props: ExperienceListProps) {
 
       <div className="load-more-container">
         {noMoreRecords ? (
-          <div className="no-more-records">That's all!</div>
+          <div className="no-more-records">{content.work.noMoreRecords}</div>
         ) : (
           <motion.button
             layout
             initial="initial"
             whileHover="hover"
             className="load-more"
-            onClick={() => {
-              setIsLoading(true);
-              void fetch(
-                `/api/load-more?after=${format(experiences[experiences.length - 1].startedAt)}`,
-              )
-                .then((res) => res.json() as Promise<Experience[] | { lastRecord: boolean }>)
-                .then((newExperiences) => {
-                  if ('lastRecord' in newExperiences) {
-                    setIsLoading(false);
-                    setNoMoreRecords(true);
-                    return;
-                  }
-
-                  setExperiences([
-                    ...experiences,
-                    ...newExperiences.map((exp) => ({
-                      ...exp,
-                      startedAt: new Date(exp.startedAt),
-                    })),
-                  ]);
-                  setIsLoading(false);
-                });
-            }}
+            onClick={loadMore}
           >
             {isLoading ? (
               <motion.div
@@ -82,7 +85,7 @@ export function ExperienceList(props: ExperienceListProps) {
                 >
                   ↓
                 </motion.div>
-                Load More
+                {content.work.loadMore}
               </>
             )}
           </motion.button>

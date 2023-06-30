@@ -1,34 +1,32 @@
 import './profile-section.scss';
 
+import { getContent } from '@app-lib/content';
 import Image from 'next/image';
-import ProfilePicture from 'public/profile-picture.png';
 
 /** Section with the profile. */
-export function ProfileSection() {
+export async function ProfileSection() {
+  const content = await getContent();
+
   return (
-    <section id="profile">
+    <section id={content.profile.id}>
       <div className="profile-container">
         <div className="information">
           <Image
-            src={ProfilePicture}
-            alt="Miguel Bogota's profile picture"
+            src={content.profile.image.url}
+            alt={content.profile.image.alt}
             width={120}
             height={120}
           />
 
-          <p>Hi, I'm Miguel Bogota</p>
+          <p>{content.profile.overline}</p>
 
           <h1>
-            <span>Senior Full Stack</span>
-            <span>Software Engineer</span>
-            <span>And Designer</span>
+            {content.profile.title.split('\n').map((line) => (
+              <span key={line}>{line}</span>
+            ))}
           </h1>
 
-          <p className="overline">
-            I'm a software developer who is passionate about making open-source projects, creating
-            technology people can enjoy and cats 🐱. Some technologies I enjoy working with include
-            Angular, React, ASP.NET, C# and Rust.
-          </p>
+          <p className="overline">{content.profile.description}</p>
         </div>
 
         <div className="pet">{/* 3D Pet Cat */}</div>
