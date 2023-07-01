@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "firebase:emulator": "firebase emulators:start --only firestore --import ./firebase/seed"
+    "firebase:emulator": "firebase emulators:start --only firestore --import ./firebase-seeding"
   },
   "dependencies": {
     "clsx": "^1.2.1",

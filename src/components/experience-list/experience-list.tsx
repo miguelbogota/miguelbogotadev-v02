@@ -3,6 +3,7 @@
 import './experience-list.scss';
 
 import { ExperienceCard } from '@app-components/experience-card/experience-card';
+import { LoadingSpinner } from '@app-components/loading-spinner/loading-spinner';
 import { type AppContent } from '@app-lib/content';
 import { type Experience } from '@app-lib/experience';
 import { motion } from 'framer-motion';
@@ -30,6 +31,10 @@ export function ExperienceList(props: ExperienceListProps) {
   const [noMoreRecords, setNoMoreRecords] = useState(false);
 
   const loadMore = () => {
+    if (isLoading) {
+      return;
+    }
+
     setIsLoading(true);
 
     void fetch(`/api/load-more?after=${format(experiences[experiences.length - 1].startedAt)}`)
@@ -71,23 +76,7 @@ export function ExperienceList(props: ExperienceListProps) {
             className="load-more"
             onClick={loadMore}
           >
-            {isLoading ? (
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-              >
-                🔄
-              </motion.div>
-            ) : (
-              <>
-                <motion.div
-                  variants={{ initial: { opacity: 0 }, hover: { opacity: 1, scale: 1.1 } }}
-                >
-                  ↓
-                </motion.div>
-                {content.work.loadMore}
-              </>
-            )}
+            {isLoading ? <LoadingSpinner /> : content.work.loadMore}
           </motion.button>
         )}
       </div>
