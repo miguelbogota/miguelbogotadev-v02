@@ -1,0 +1,19 @@
+@use 'src/styles/_functions.scss';
+
+.back-button {
+  --size: 2.6rem;
+
+  font-size: calc(var(--size) * 0.45);
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: functions.reduce-transparency(var(--text-primary), 5%);
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: functions.reduce-transparency(var(--text-primary), 15%);
+  }
+}

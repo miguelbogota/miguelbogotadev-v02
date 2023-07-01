@@ -3,15 +3,17 @@ import { ExperienceDialog } from '@app-components/experience-dialog/experience-d
 import { getContent } from '@app-lib/content';
 import { experienceAction } from 'src/lib/experience';
 
-export default async function WorkModalPage(props: { params: { workId: string } }) {
+type PageProps = { params: { workId: string } };
+
+export default async function WorkModalPage(props: PageProps) {
   const { params } = props;
 
   const content = await getContent();
   const experience = await experienceAction.get(params.workId);
 
   return (
-    <ExperienceDialog open onCloseRedirect="/">
-      <ExperienceDetails content={content} experience={experience} />
+    <ExperienceDialog open onCloseRedirect="/" title={`Miguel Bogota - ${experience.name}`}>
+      <ExperienceDetails content={content} experience={experience} isDialog />
     </ExperienceDialog>
   );
 }

@@ -3,11 +3,13 @@ import './experience-details.scss';
 import { Container } from '@app-components/container/container';
 import { type AppContent } from '@app-lib/content';
 import { type Experience } from '@app-lib/experience';
+import clsx from 'clsx';
 import Image from 'next/image';
 
 export type ExperienceDetailsProps = {
   experience: Experience;
   content: AppContent;
+  isDialog?: boolean;
 };
 
 const IconLink = ({ url, label, icon }: { url?: string; label: string; icon: string }) => (
@@ -23,7 +25,7 @@ const IconLink = ({ url, label, icon }: { url?: string; label: string; icon: str
 );
 
 export function ExperienceDetails(props: ExperienceDetailsProps) {
-  const { experience, content } = props;
+  const { experience, content, isDialog = false } = props;
   const {
     id,
     name,
@@ -49,7 +51,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
 
   return (
     <Container id={id} className="experience-details">
-      <div className="headline">
+      <div className={clsx('headline', isDialog && 'is-dialog')}>
         <div className="info">
           <h1>{name}</h1>
           <div className="role">{roleAndDate}</div>

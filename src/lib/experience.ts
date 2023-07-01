@@ -10,6 +10,7 @@ import {
   startAfter,
 } from '@app-lib/firebase';
 import { Timestamp } from 'firebase/firestore';
+import { cache } from 'react';
 
 export type Experience = {
   id: string;
@@ -31,7 +32,7 @@ export const experienceConstants = {
 
 export const experienceAction = {
   /** Returns a promise with the latest 9 documents of the experience collection. */
-  async initial() {
+  initial: cache(async () => {
     const q = query(
       collection(firestore, 'experience'),
       orderBy('startedAt', 'desc'),
@@ -50,9 +51,9 @@ export const experienceAction = {
     });
 
     return experiences;
-  },
+  }),
   /** Returns a promise with a single experience document. */
-  async get(id: string) {
+  get: cache(async (id: string) => {
     const docRef = doc(firestore, 'experience', id);
     const docSnapshot = await getDoc(docRef);
 
@@ -65,9 +66,9 @@ export const experienceAction = {
     };
 
     return { id: docSnapshot.id, ...data, startedAt: data.startedAt.toDate() } as Experience;
-  },
+  }),
   /** Fetch 3 more experiences and are added to the cached ones. */
-  async fetchMore(after: string) {
+  fetchMore: cache(async (after: string) => {
     const q = query(
       collection(firestore, 'experience'),
       orderBy('startedAt', 'desc'),
@@ -87,5 +88,5 @@ export const experienceAction = {
     });
 
     return experiences.length > 0 ? experiences : { lastRecord: true };
-  },
+  }),
 };

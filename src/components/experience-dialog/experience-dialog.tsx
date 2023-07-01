@@ -10,10 +10,15 @@ export type ExperienceDialogProps = PropsWithChildren<{
   open?: boolean;
   onClose?: () => void;
   onCloseRedirect?: string;
+  title?: string;
 }>;
 
 export function ExperienceDialog(props: ExperienceDialogProps) {
-  const { children, open: initialState, onClose, onCloseRedirect } = props;
+  const { children, open: initialState, onClose, onCloseRedirect, title } = props;
+
+  if (title && document.title !== title) {
+    document.title = title;
+  }
 
   const [open, setOpen] = useState(initialState ?? false);
 

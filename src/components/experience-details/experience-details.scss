@@ -1,2 +1,31 @@
+@use 'src/styles/_functions.scss';
+
 .experience-details {
+  .headline {
+    position: sticky;
+    top: 0;
+    right: 0;
+    backdrop-filter: saturate(100%) blur(5px);
+    background-color: functions.reduce-transparency(var(--background-main), 90%);
+
+    &.is-dialog {
+      background-color: functions.reduce-transparency(var(--background-sheet), 90%);
+    }
+
+    .info {
+      h1 {
+      }
+
+      .role {
+      }
+
+      .active {
+      }
+    }
+
+    .links {
+      .social-link {
+      }
+    }
+  }
 }
