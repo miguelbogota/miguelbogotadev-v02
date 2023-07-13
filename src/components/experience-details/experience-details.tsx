@@ -1,8 +1,8 @@
 'use client';
 
-import { BackButton } from '@app-components/back-button/back-button';
 import './experience-details.scss';
 
+import { BackButton } from '@app-components/back-button/back-button';
 import { Container } from '@app-components/container/container';
 import { Footer } from '@app-components/footer/footer';
 import { type AppContent } from '@app-lib/content';
