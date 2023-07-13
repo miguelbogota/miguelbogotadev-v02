@@ -42,7 +42,7 @@ const mockedContent: AppContent = {
     description:
       "I care deeply about the code I write and the effect my work has on the product I'm building. You will see below some of the work I'm most proud of.",
     loadMore: 'Load More',
-    noMoreRecords: "That's all!",
+    noMoreRecords: 'Thank you',
   },
   social: {
     id: 'social',

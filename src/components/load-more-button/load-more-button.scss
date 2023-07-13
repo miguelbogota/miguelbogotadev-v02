@@ -1,0 +1,43 @@
+@use 'src/styles/_functions.scss';
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-5);
+  font-size: 1.2rem;
+  // This avoids that the loading spinner moves everyting down when it appears.
+  max-height: var(--space-5);
+  height: var(--space-5);
+
+  &:has(.loading-spinner) {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .load-more {
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-4);
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    border-radius: 2px;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: functions.reduce-transparency(var(--background-sheet), 90%);
+    }
+  }
+
+  .no-more-records {
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-4);
+    border-radius: 2px;
+    word-spacing: 0.2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    color: var(--text-disabled);
+    cursor: default;
+  }
+}

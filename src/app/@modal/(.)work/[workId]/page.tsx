@@ -12,7 +12,7 @@ export default async function WorkModalPage(props: PageProps) {
   const experience = await experienceAction.get(params.workId);
 
   return (
-    <ExperienceDialog open onCloseRedirect="/" title={`Miguel Bogota - ${experience.name}`}>
+    <ExperienceDialog open onCloseRedirect="/" title={`Miguel Bogota - ${experience.displayName}`}>
       <ExperienceDetails content={content} experience={experience} isDialog />
     </ExperienceDialog>
   );

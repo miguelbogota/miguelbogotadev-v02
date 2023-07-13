@@ -23,16 +23,17 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: functions.reduce-transparency(var(--scale-7), 100%, 10%);
+    background-color: functions.reduce-transparency(var(--black), 100%, 50%);
+    backdrop-filter: saturate(100%) blur(2px);
   }
 
   & > .content {
-    --radius: 2%;
+    --radius: 12px;
 
     display: block;
     background-color: var(--background-sheet);
     width: 100dvw;
-    height: 87dvh;
+    height: 93dvh;
     z-index: calc(var(--modal) + 1);
     border-radius: var(--radius) var(--radius) 0px 0px;
     overflow: auto;

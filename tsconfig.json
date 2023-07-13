@@ -20,6 +20,7 @@
       "@app-components/*": ["src/components/*"],
       "@app-hooks/*": ["src/hooks/*"],
       "@app-lib/*": ["src/lib/*"],
+      "@app-utils/*": ["src/utils/*"],
       "@app-theme": ["src/theme"],
       "@app-env": ["src/environment"],
       "@app-test/*": ["test/*"]

@@ -1,13 +1,11 @@
 .loading-spinner {
-  animation: 2s linear infinite svg-animation;
-  width: 1.5rem;
+  animation: 2s linear infinite rotate;
+  width: 1.75rem;
+  overflow: visible;
 
-  @keyframes svg-animation {
-    0% {
-      transform: rotateZ(0deg);
-    }
+  @keyframes rotate {
     100% {
-      transform: rotateZ(360deg);
+      transform: rotate(360deg);
     }
   }
 
@@ -15,12 +13,13 @@
     animation: 1.4s ease-in-out infinite both circle-animation;
     display: block;
     fill: transparent;
-    stroke: var(--text-inverted);
+    stroke: var(--text-secondary);
     stroke-linecap: round;
     stroke-dasharray: 283;
     stroke-dashoffset: 280;
-    stroke-width: 13px;
+    stroke-width: 0.8rem;
     transform-origin: 50% 50%;
+    stroke-linecap: round;
   }
 
   @keyframes circle-animation {

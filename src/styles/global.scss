@@ -19,8 +19,8 @@ section {
 }
 
 p {
-  font-size: clamp(0.9rem, 1.03vw, 1.05rem);
-  line-height: clamp(1.35rem, 1.7vw, 1.65rem);
+  font-size: clamp(1.1rem, 1.24vw, 1.26rem);
+  line-height: clamp(1.55rem, 1.9vw, 1.85rem);
   margin-bottom: 1.2rem;
   font-weight: 200;
   letter-spacing: 0.02rem;
@@ -32,12 +32,13 @@ p {
 }
 
 h1 {
-  font-size: clamp(2rem, 6vw, 4rem);
-  line-height: clamp(2.1rem, 6.1vw, 4.3rem);
+  font-size: clamp(2.4rem, 6.4vw, 4.4rem);
+  line-height: clamp(2.7rem, 6.7vw, 4.9rem);
   font-weight: 600;
   margin-bottom: 2rem;
   color: var(--text-primary);
   letter-spacing: 0.02rem;
+  white-space: nowrap;
 
   span {
     display: block;
@@ -46,8 +47,8 @@ h1 {
 
 h2 {
   display: block;
-  font-size: clamp(1.2rem, 1.3vw, 1.4rem);
-  line-height: clamp(1.2rem, 1.3vw, 1.4rem);
+  font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+  line-height: clamp(1.4rem, 1.5vw, 1.6rem);
   font-weight: 600;
   color: var(--text-primary);
   text-transform: uppercase;

@@ -14,10 +14,10 @@ import { cache } from 'react';
 
 export type Experience = {
   id: string;
-  name: string;
+  displayName: string;
   isActive: boolean;
   description: string;
-  role: string;
+  displayRole: string;
   imageUrls: string[];
   technologies?: string[];
   gitUrl?: string;
@@ -68,7 +68,7 @@ export const experienceAction = {
     return { id: docSnapshot.id, ...data, startedAt: data.startedAt.toDate() } as Experience;
   }),
   /** Fetch 3 more experiences and are added to the cached ones. */
-  fetchMore: cache(async (after: string) => {
+  loadMore: cache(async (after: string) => {
     const q = query(
       collection(firestore, 'experience'),
       orderBy('startedAt', 'desc'),

@@ -3,7 +3,7 @@
 import './navigation.scss';
 
 import { Container } from '@app-components/container/container';
-import { Link } from '@app-components/link/link';
+import { NavigationLink } from '@app-components/navigation-link/navigation-link';
 import { useScrollSpy } from '@app-hooks/use-scroll-spy/use-scroll-spy';
 import { type AppContent } from '@app-lib/content';
 
@@ -26,14 +26,22 @@ export function Navigation(props: NavigationProps) {
 
         <div className="navigation-links">
           {content.navigation.links.map((section) => (
-            <Link key={section.id} href={`#${section.id}`} active={section.id === activeSectionId}>
+            <NavigationLink
+              key={section.id}
+              href={`#${section.id}`}
+              active={section.id === activeSectionId}
+            >
               {section.label}
-            </Link>
+            </NavigationLink>
           ))}
 
-          <Link href={content.navigation.resume.url} target="_blank" rel="noopener noreferrer">
+          <NavigationLink
+            href={content.navigation.resume.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {content.navigation.resume.label}
-          </Link>
+          </NavigationLink>
         </div>
       </Container>
     </nav>

@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   }
 
   const after = params.get('after');
-  const experiences = await experienceAction.fetchMore(after ?? '');
+  const experiences = await experienceAction.loadMore(after ?? '');
 
   return NextResponse.json(experiences);
 }

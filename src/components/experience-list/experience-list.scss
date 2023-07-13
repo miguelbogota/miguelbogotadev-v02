@@ -15,30 +15,3 @@
     grid-gap: var(--space-1);
   }
 }
-
-.load-more-container {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--space-5);
-
-  .load-more {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    padding: var(--space-2) var(--space-4);
-    cursor: pointer;
-    border-radius: 2px;
-    text-align: center;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .no-more-records {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    padding: var(--space-2) var(--space-4);
-    border-radius: 2px;
-    text-align: center;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}

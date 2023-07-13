@@ -1,11 +1,11 @@
-import './link.scss';
+import './navigation-link.scss';
 
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { type ComponentPropsWithRef, forwardRef, type Ref } from 'react';
 
 /** Props for the Link component. */
-export type LinkProps = ComponentPropsWithRef<'a'> & {
+export type NavigationLinkProps = ComponentPropsWithRef<'a'> & {
   active?: boolean;
 };
 
@@ -19,8 +19,8 @@ const loadRef = {
 };
 
 /** Link component. */
-export const Link = forwardRef(function ContainerRoot(
-  inProps: LinkProps,
+export const NavigationLink = forwardRef(function ContainerRoot(
+  inProps: NavigationLinkProps,
   ref: Ref<HTMLAnchorElement>,
 ) {
   const { children, className, href, active, ...props } = inProps;

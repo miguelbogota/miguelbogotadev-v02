@@ -28,10 +28,10 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
   const { experience, content, isDialog = false } = props;
   const {
     id,
-    name,
+    displayName,
     isActive,
     description,
-    role,
+    displayRole,
     imageUrls,
     gitUrl,
     webUrl,
@@ -39,7 +39,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
     technologies,
   } = experience;
 
-  const roleAndDate = `${role} — ${startedAt.getFullYear()}`;
+  const roleAndDate = `${displayRole} — ${startedAt.getFullYear()}`;
 
   const gitLink = gitUrl && (
     <IconLink url={gitUrl} label="Link to project's Github" icon="bx bxl-github" />
@@ -53,7 +53,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
     <Container id={id} className="experience-details">
       <div className={clsx('headline', isDialog && 'is-dialog')}>
         <div className="info">
-          <h1>{name}</h1>
+          <h1>{displayName}</h1>
           <div className="role">{roleAndDate}</div>
           {isActive && <div className="active">{content.details.technologies.active}</div>}
         </div>
@@ -65,7 +65,13 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
       </div>
 
       <div className="images">
-        <Image className="main-image" src={imageUrls[0]} alt={name} width={800} height={800} />
+        <Image
+          className="main-image"
+          src={imageUrls[0]}
+          alt={displayName}
+          width={800}
+          height={800}
+        />
 
         <div className="preview-images">
           {imageUrls.map((url, index) => (
@@ -73,7 +79,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
               className="previe-image"
               key={index}
               src={url}
-              alt={name}
+              alt={displayName}
               width={200}
               height={200}
             />
@@ -81,7 +87,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
         </div>
 
         <div className="description">
-          {description.split('\n').map((paragraph, index) => (
+          {description.split('\\n').map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
         </div>

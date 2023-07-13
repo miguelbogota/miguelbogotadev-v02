@@ -13,7 +13,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const experience = await experienceAction.get(params.workId);
 
   return {
-    title: `Miguel Bogota - ${experience.name}`,
+    title: `Miguel Bogota - ${experience.displayName}`,
   };
 }
 
