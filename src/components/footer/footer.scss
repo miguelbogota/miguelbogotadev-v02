@@ -1,4 +1,6 @@
 footer {
+  font-size: clamp(1rem, 1.14vw, 1.16rem);
+  line-height: clamp(1.45rem, 1.8vw, 1.75rem);
   display: block;
   width: 100%;
   padding: var(--space-4) 0px;

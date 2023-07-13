@@ -1,5 +1,3 @@
-import { BackButton } from '@app-components/back-button/back-button';
-import { Container } from '@app-components/container/container';
 import { ExperienceDetails } from '@app-components/experience-details/experience-details';
 import { getContent } from '@app-lib/content';
 import { type Metadata } from 'next';
@@ -23,13 +21,5 @@ export default async function Work(props: { params: { workId: string } }) {
   const content = await getContent();
   const experience = await experienceAction.get(params.workId);
 
-  return (
-    <>
-      <Container style={{ margin: 'var(--space-4) auto' }}>
-        <BackButton />
-      </Container>
-
-      <ExperienceDetails content={content} experience={experience} />
-    </>
-  );
+  return <ExperienceDetails content={content} experience={experience} />;
 }

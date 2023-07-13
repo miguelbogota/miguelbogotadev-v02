@@ -17,7 +17,7 @@ export default async function Home() {
         <WorkSection />
         <SocialSection />
       </Container>
-      <Footer />
+      <Footer content={content} />
     </>
   );
 }

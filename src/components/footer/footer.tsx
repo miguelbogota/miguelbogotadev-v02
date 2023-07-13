@@ -1,10 +1,14 @@
 import './footer.scss';
 
-import { getContent } from '@app-lib/content';
+import { type AppContent } from '@app-lib/content';
+
+export type FooterProps = {
+  content: AppContent;
+};
 
 /** Footer component */
-export async function Footer() {
-  const content = await getContent();
+export function Footer(props: FooterProps) {
+  const { content } = props;
 
   return <footer>{content.footer.text}</footer>;
 }

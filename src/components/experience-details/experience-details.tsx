@@ -1,10 +1,15 @@
+'use client';
+
+import { BackButton } from '@app-components/back-button/back-button';
 import './experience-details.scss';
 
 import { Container } from '@app-components/container/container';
+import { Footer } from '@app-components/footer/footer';
 import { type AppContent } from '@app-lib/content';
 import { type Experience } from '@app-lib/experience';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export type ExperienceDetailsProps = {
   experience: Experience;
@@ -39,6 +44,8 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
     technologies,
   } = experience;
 
+  const [selectedImage, setSelectedImage] = useState(imageUrls[0]);
+
   const roleAndDate = `${displayRole} — ${startedAt.getFullYear()}`;
 
   const gitLink = gitUrl && (
@@ -52,10 +59,16 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
   return (
     <Container id={id} className="experience-details">
       <div className={clsx('headline', isDialog && 'is-dialog')}>
+        {!isDialog && <BackButton />}
+
         <div className="info">
-          <h1>{displayName}</h1>
-          <div className="role">{roleAndDate}</div>
-          {isActive && <div className="active">{content.details.technologies.active}</div>}
+          <span className="name">
+            <h1>{displayName}</h1>
+            {isActive && (
+              <span className="active">{`(${content.details.technologies.active})`}</span>
+            )}
+          </span>
+          <p className="role">{roleAndDate}</p>
         </div>
 
         <div className="links">
@@ -67,7 +80,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
       <div className="images">
         <Image
           className="main-image"
-          src={imageUrls[0]}
+          src={selectedImage}
           alt={displayName}
           width={800}
           height={800}
@@ -76,33 +89,36 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
         <div className="preview-images">
           {imageUrls.map((url, index) => (
             <Image
-              className="previe-image"
+              className={clsx('preview-image', url === selectedImage && 'is-selected')}
               key={index}
               src={url}
               alt={displayName}
-              width={200}
-              height={200}
+              width={90}
+              height={90}
+              onClick={() => setSelectedImage(url)}
             />
           ))}
         </div>
+      </div>
 
-        <div className="description">
-          {description.split('\\n').map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+      <div className="description">
+        {description.split('\\n').map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
+
+      {(technologies?.length ?? 0) > 0 && (
+        <div className="technologies">
+          <h2>{content.details.technologies.title}</h2>
+          {technologies?.map((technology, index) => (
+            <span className="technology" key={index}>
+              {technology}
+            </span>
           ))}
         </div>
+      )}
 
-        {(technologies?.length ?? 0) > 0 && (
-          <div className="technologies">
-            <h2>{content.details.technologies.title}</h2>
-            {technologies?.map((technology, index) => (
-              <span className="technology" key={index}>
-                {technology}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
+      <Footer content={content} />
     </Container>
   );
 }
