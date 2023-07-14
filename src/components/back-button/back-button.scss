@@ -5,6 +5,7 @@
 
   font-size: calc(var(--size) * 0.45);
   width: var(--size);
+  min-width: var(--size);
   height: var(--size);
   margin-right: 1rem;
   display: flex;

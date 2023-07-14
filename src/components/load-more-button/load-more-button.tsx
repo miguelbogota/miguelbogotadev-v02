@@ -12,14 +12,15 @@ export type LoadMoreButtonProps = {
   content: AppContent;
   lastExperience: Date;
   onLoadMore?: (newExperiences: Experience[]) => void;
+  noMoreRecords?: boolean;
 };
 
 /** Component with the load more button in the experience list. */
 export function LoadMoreButton(props: LoadMoreButtonProps) {
-  const { content, lastExperience, onLoadMore } = props;
+  const { content, lastExperience, onLoadMore, noMoreRecords: noMoreRecordsProp = false } = props;
 
   const [isLoading, setIsLoading] = useState(false);
-  const [noMoreRecords, setNoMoreRecords] = useState(false);
+  const [noMoreRecords, setNoMoreRecords] = useState(noMoreRecordsProp);
 
   const loadMore = async () => {
     if (isLoading) {

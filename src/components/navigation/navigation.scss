@@ -6,8 +6,8 @@ nav {
   width: 100%;
   text-align: center;
   position: fixed;
-  backdrop-filter: saturate(100%) blur(5px);
-  background-color: functions.reduce-transparency(var(--background-main), 90%);
+  backdrop-filter: saturate(100%) blur(15px);
+  background-color: functions.reduce-transparency(var(--background-main), 100%, 60%);
   z-index: var(--navigation);
 
   .container.navigation {
@@ -15,7 +15,8 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    padding: calc(var(--space-1) * 0.3) 0px 0px;
+    height: 60px;
 
     & > h3 {
       display: block;

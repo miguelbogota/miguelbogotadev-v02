@@ -14,9 +14,12 @@
     padding-top: var(--space-6);
 
     @include mixins.small-device {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
       margin-bottom: 0px;
+      grid-template-columns: 1fr;
+
+      // TODO(@miguelbogota) Toggle between these two options once the pet is added.
+      grid-template-rows: 1fr;
+      // grid-template-rows: 1fr 1fr;
     }
 
     .information {

@@ -25,7 +25,7 @@ export const NavigationLink = forwardRef(function ContainerRoot(
 ) {
   const { children, className, href, active, ...props } = inProps;
 
-  const classes = clsx('link', className);
+  const classes = clsx('navigation-link', className);
 
   return (
     <a

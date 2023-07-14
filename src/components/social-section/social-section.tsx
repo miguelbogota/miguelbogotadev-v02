@@ -7,7 +7,7 @@ export async function SocialSection() {
   const content = await getContent();
 
   return (
-    <section id={content.social.id}>
+    <section id="social">
       <div className="social-container">
         <div className="content">
           <h2>{content.social.title}</h2>

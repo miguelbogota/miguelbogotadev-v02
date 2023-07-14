@@ -8,7 +8,7 @@ export async function ProfileSection() {
   const content = await getContent();
 
   return (
-    <section id={content.profile.id}>
+    <section id="profile">
       <div className="profile-container">
         <div className="information">
           <Image

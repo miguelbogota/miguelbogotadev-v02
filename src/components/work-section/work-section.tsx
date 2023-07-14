@@ -10,7 +10,7 @@ export async function WorkSection() {
   const content = await getContent();
 
   return (
-    <section id={content.work.id}>
+    <section id="work">
       <div className="work-container">
         <div className="content">
           <h2>{content.work.title}</h2>

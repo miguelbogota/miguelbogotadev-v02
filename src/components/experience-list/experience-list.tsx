@@ -5,7 +5,7 @@ import './experience-list.scss';
 import { ExperienceCard } from '@app-components/experience-card/experience-card';
 import { LoadMoreButton } from '@app-components/load-more-button/load-more-button';
 import { type AppContent } from '@app-lib/content';
-import { type Experience } from '@app-lib/experience';
+import { type Experience, experienceConstants } from '@app-lib/experience';
 import { useState } from 'react';
 
 export type ExperienceListProps = {
@@ -17,6 +17,7 @@ export function ExperienceList(props: ExperienceListProps) {
   const { experiences: serverExperiences, content } = props;
 
   const [experiences, setExperiences] = useState(serverExperiences);
+  const [noMoreRecords] = useState(experiences.length < experienceConstants.initialLoad);
 
   return (
     <>
@@ -28,6 +29,7 @@ export function ExperienceList(props: ExperienceListProps) {
 
       <LoadMoreButton
         content={content}
+        noMoreRecords={noMoreRecords}
         lastExperience={experiences[experiences.length - 1].startedAt}
         onLoadMore={(newExperiences) => {
           setExperiences([

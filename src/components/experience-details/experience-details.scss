@@ -1,4 +1,5 @@
 @use 'src/styles/_functions.scss';
+@use 'src/styles/_mixins.scss';
 
 @mixin background-color($color) {
   background-color: functions.reduce-transparency($color, 100%, 8%);
@@ -18,6 +19,10 @@
 
     &.is-dialog {
       @include background-color(var(--background-sheet));
+    }
+
+    @include mixins.small-device {
+      padding: var(--space-2) 0px;
     }
 
     .info {
@@ -46,11 +51,16 @@
     }
 
     .links {
+      display: flex;
       color: var(--text-primary);
 
       .social-link {
         font-size: 1.5rem;
         margin-left: var(--space-3);
+
+        @include mixins.small-device {
+          font-size: 1.8rem;
+        }
       }
     }
   }
@@ -66,19 +76,30 @@
     .main-image {
       margin-bottom: var(--space-4);
       border-radius: 12px;
+      max-width: 100%;
+      height: auto;
     }
 
     .preview-images {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
-      width: 100%;
+      justify-content: flex-start;
+      width: fit-content;
+      max-width: 40%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: var(--space-1);
+
+      @include mixins.small-device {
+        max-width: 100%;
+      }
 
       .preview-image {
-        margin: 0 var(--space-2);
+        margin: 0 var(--space-1);
         border-radius: 12px;
         cursor: pointer;
+        scroll-snap-align: center;
 
         &.is-selected {
           outline: 2px solid var(--primary);
@@ -93,6 +114,25 @@
 
     p {
       max-width: 72ch;
+    }
+  }
+
+  .technologies {
+    font-size: clamp(1.1rem, 1.24vw, 1.26rem);
+    line-height: clamp(1.55rem, 1.9vw, 1.85rem);
+
+    .technology {
+      margin-right: var(--space-1);
+      color: var(--primary);
+      cursor: pointer;
+
+      &::after {
+        content: ', ';
+      }
+
+      &:last-child::after {
+        content: '';
+      }
     }
   }
 

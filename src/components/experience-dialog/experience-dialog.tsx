@@ -1,5 +1,6 @@
 'use client';
 
+import { useEventListener } from '@app-hooks/use-event-listener/use-event-listener';
 import './experience-dialog.scss';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -11,10 +12,18 @@ export type ExperienceDialogProps = PropsWithChildren<{
   onClose?: () => void;
   onCloseRedirect?: string;
   title?: string;
+  allowEscape?: boolean;
 }>;
 
 export function ExperienceDialog(props: ExperienceDialogProps) {
-  const { children, open: initialState, onClose, onCloseRedirect, title } = props;
+  const {
+    children,
+    open: initialState,
+    onClose,
+    onCloseRedirect,
+    title,
+    allowEscape = true,
+  } = props;
 
   if (title && document.title !== title) {
     document.title = title;
@@ -31,6 +40,12 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
       router.push(onCloseRedirect);
     }
   };
+
+  useEventListener('keydown', (event) => {
+    if (allowEscape && event.key === 'Escape') {
+      handleClosing();
+    }
+  });
 
   const backdrop = (
     <motion.div

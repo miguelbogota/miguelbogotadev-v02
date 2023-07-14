@@ -112,7 +112,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
           <h2>{content.details.technologies.title}</h2>
           {technologies?.map((technology, index) => (
             <span className="technology" key={index}>
-              {technology}
+              #{technology}
             </span>
           ))}
         </div>
