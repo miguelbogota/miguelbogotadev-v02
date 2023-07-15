@@ -4,7 +4,6 @@ import './experience-dialog.scss';
 
 import { useEventListener } from '@app-hooks/use-event-listener/use-event-listener';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import { type PropsWithChildren, useEffect, useState } from 'react';
 
 export type ExperienceDialogProps = PropsWithChildren<{
@@ -27,8 +26,6 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
 
   const [open, setOpen] = useState(initialState ?? false);
 
-  const router = useRouter();
-
   useEffect(() => {
     if (title && document.title !== title) {
       document.title = title;
@@ -40,7 +37,8 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
     setOpen(false);
     onClose?.();
     if (onCloseRedirect) {
-      router.push(onCloseRedirect);
+      window.history.pushState({}, onCloseRedirect, onCloseRedirect);
+      document.title = 'Miguel Bogota';
     }
   };
 
