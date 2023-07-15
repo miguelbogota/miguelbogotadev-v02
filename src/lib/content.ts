@@ -1,8 +1,9 @@
+import { environment } from '@app-env';
 import { doc, firestore, getDoc } from '@app-lib/firebase';
 import { cache } from 'react';
 
 // import { setDoc } from 'firebase/firestore';
-// import { mockedContent } from './content.mock';
+import { mockedContent } from './content.mock';
 
 export type AppContent = {
   navigation: {
@@ -54,10 +55,12 @@ export type AppContent = {
 const docId = 'Oab3bfxAJMdAyUDL2hjI';
 
 export const getContent = cache(async () => {
-  // await setDoc(doc(firestore, 'content', docId), mockedContent);
-  // return new Promise<typeof mockedContent>((resolve) =>
-  //   setTimeout(() => resolve(mockedContent), 1000),
-  // );
+  if (!environment.isProdEnv) {
+    // await setDoc(doc(firestore, 'content', docId), mockedContent);
+    return new Promise<typeof mockedContent>((resolve) =>
+      setTimeout(() => resolve(mockedContent), 1000),
+    );
+  }
 
   const docRef = doc(firestore, 'content', docId);
   const docSnapshot = await getDoc(docRef);

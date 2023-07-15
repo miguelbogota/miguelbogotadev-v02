@@ -19,8 +19,6 @@
     "clsx": "^1.2.1",
     "esbuild": "^0.18.12",
     "firebase": "^9.23.0",
-    "firebase-admin": "^11.10.1",
-    "firebase-functions": "^4.4.1",
     "framer-motion": "^10.12.16",
     "lodash": "^4.17.21",
     "next": "13.4.6",

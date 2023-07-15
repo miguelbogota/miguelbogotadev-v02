@@ -5,7 +5,7 @@ import './experience-dialog.scss';
 import { useEventListener } from '@app-hooks/use-event-listener/use-event-listener';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { type PropsWithChildren, useState } from 'react';
+import { type PropsWithChildren, useState, useEffect } from 'react';
 
 export type ExperienceDialogProps = PropsWithChildren<{
   open?: boolean;
@@ -29,9 +29,12 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
 
   const router = useRouter();
 
-  if (title && document.title !== title) {
-    document.title = title;
-  }
+  useEffect(() => {
+    if (title && document.title !== title) {
+      document.title = title;
+      window.history.replaceState({}, title, window.location.pathname);
+    }
+  }, []);
 
   const handleClosing = () => {
     setOpen(false);
