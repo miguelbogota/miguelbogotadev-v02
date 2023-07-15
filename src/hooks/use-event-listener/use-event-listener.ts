@@ -41,6 +41,8 @@ function useEventListener<
   KW extends keyof WindowEventMap,
   KH extends keyof HTMLElementEventMap,
   KM extends keyof MediaQueryListEventMap,
+  // Disable eslint rule because of the void type is needed for the window event.
+  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   T extends HTMLElement | MediaQueryList | void = void,
 >(
   eventName: KW | KH | KM,

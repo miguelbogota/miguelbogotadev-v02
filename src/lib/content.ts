@@ -1,5 +1,4 @@
 import { doc, firestore, getDoc } from '@app-lib/firebase';
-import { type StaticImageData } from 'next/image';
 import { cache } from 'react';
 
 // import { setDoc } from 'firebase/firestore';
@@ -20,7 +19,7 @@ export type AppContent = {
   profile: {
     overline: string;
     image: {
-      url: string | StaticImageData;
+      url: string;
       alt: string;
     };
     title: string;

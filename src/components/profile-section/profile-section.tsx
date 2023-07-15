@@ -1,7 +1,6 @@
 import './profile-section.scss';
 
 import { getContent } from '@app-lib/content';
-import Image from 'next/image';
 
 /** Section with the profile. */
 export async function ProfileSection() {
@@ -11,7 +10,7 @@ export async function ProfileSection() {
     <section id="profile">
       <div className="profile-container">
         <div className="information">
-          <Image
+          <img
             src={content.profile.image.url}
             alt={content.profile.image.alt}
             width={120}

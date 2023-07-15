@@ -1,5 +1,3 @@
-import ProfilePicture from 'public/profile-picture.png';
-
 import { type AppContent } from './content';
 
 export const mockedContent: AppContent = {
@@ -27,7 +25,7 @@ export const mockedContent: AppContent = {
   profile: {
     overline: "Hi, I'm Miguel Bogota",
     image: {
-      url: ProfilePicture,
+      url: 'profile-picture.png',
       alt: "Miguel Bogota's profile picture",
     },
     title: 'Senior Full Stack\nSoftware Engineer\nAnd Designer',

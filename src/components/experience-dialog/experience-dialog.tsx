@@ -1,8 +1,8 @@
 'use client';
 
-import { useEventListener } from '@app-hooks/use-event-listener/use-event-listener';
 import './experience-dialog.scss';
 
+import { useEventListener } from '@app-hooks/use-event-listener/use-event-listener';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { type PropsWithChildren, useState } from 'react';
@@ -25,13 +25,13 @@ export function ExperienceDialog(props: ExperienceDialogProps) {
     allowEscape = true,
   } = props;
 
-  if (title && document.title !== title) {
-    document.title = title;
-  }
-
   const [open, setOpen] = useState(initialState ?? false);
 
   const router = useRouter();
+
+  if (title && document.title !== title) {
+    document.title = title;
+  }
 
   const handleClosing = () => {
     setOpen(false);

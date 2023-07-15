@@ -8,7 +8,6 @@ import { Footer } from '@app-components/footer/footer';
 import { type AppContent } from '@app-lib/content';
 import { type Experience } from '@app-lib/experience';
 import clsx from 'clsx';
-import Image from 'next/image';
 import { useState } from 'react';
 
 export type ExperienceDetailsProps = {
@@ -78,7 +77,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
       </div>
 
       <div className="images">
-        <Image
+        <img
           className="main-image"
           src={selectedImage}
           alt={displayName}
@@ -88,7 +87,7 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
 
         <div className="preview-images">
           {imageUrls.map((url, index) => (
-            <Image
+            <img
               className={clsx('preview-image', url === selectedImage && 'is-selected')}
               key={index}
               src={url}

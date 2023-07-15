@@ -1,6 +1,5 @@
 import './experience-card.scss';
 
-import Image from 'next/image';
 import NextLink from 'next/link';
 
 export type ExperienceCardProps = {
@@ -15,7 +14,7 @@ export function ExperienceCard(props: ExperienceCardProps) {
 
   return (
     <NextLink href={`/work/${id}`} className="experience-card">
-      <Image src={imageUrl} alt={displayName} width={200} height={200} />
+      <img src={imageUrl} alt={displayName} width={200} height={200} />
       <h3>{displayName}</h3>
     </NextLink>
   );
