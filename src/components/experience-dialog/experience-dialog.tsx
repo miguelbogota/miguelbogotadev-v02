@@ -5,7 +5,7 @@ import './experience-dialog.scss';
 import { useEventListener } from '@app-hooks/use-event-listener/use-event-listener';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { type PropsWithChildren, useState, useEffect } from 'react';
+import { type PropsWithChildren, useEffect, useState } from 'react';
 
 export type ExperienceDialogProps = PropsWithChildren<{
   open?: boolean;
