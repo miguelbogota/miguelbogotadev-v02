@@ -18,7 +18,20 @@ export type Experience = {
   isActive: boolean;
   description: string;
   displayRole: string;
-  imageUrls: string[];
+  imageUrls: ({
+    thumbnail: {
+      200: string;
+      400: string;
+      800: string;
+      1200: string;
+    };
+    full: {
+      200: string;
+      400: string;
+      800: string;
+      1200: string;
+    };
+  })[];
   technologies?: string[];
   gitUrl?: string;
   webUrl?: string;

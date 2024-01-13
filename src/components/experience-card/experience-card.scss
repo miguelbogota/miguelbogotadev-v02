@@ -4,6 +4,7 @@
   border-radius: 1%;
   overflow: hidden;
   transition: background-color 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
 
   &::before {
     content: '';
@@ -21,6 +22,10 @@
     height: 100%;
     object-fit: cover;
     transition: opacity 0.1s ease, filter 0.1s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: removeBlur 1s ease-in-out;
   }
 
   h3 {

@@ -23,7 +23,12 @@ export function ExperienceList(props: ExperienceListProps) {
     <>
       <div className="experience">
         {experiences.map(({ id, displayName, imageUrls }) => (
-          <ExperienceCard key={id} id={id} displayName={displayName} imageUrl={imageUrls[0]} />
+          <ExperienceCard
+            key={id}
+            id={id}
+            displayName={displayName}
+            imageUrl={imageUrls[0].thumbnail}
+          />
         ))}
       </div>
 

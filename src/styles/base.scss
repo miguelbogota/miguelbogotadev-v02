@@ -9,3 +9,13 @@ body,
   color: var(--text-secondary);
   scroll-behavior: smooth;
 }
+
+@keyframes removeBlur {
+  0%,
+  50% {
+    filter: blur(5px);
+  }
+  100% {
+    filter: unset;
+  }
+}

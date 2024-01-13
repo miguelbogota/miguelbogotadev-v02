@@ -77,24 +77,35 @@ export function ExperienceDetails(props: ExperienceDetailsProps) {
       </div>
 
       <div className="images">
-        <img
-          className="main-image"
-          src={selectedImage}
-          alt={displayName}
-          width={800}
-          height={800}
-        />
+        <picture>
+          <source srcSet={selectedImage.full[400]} media="(max-width: 800px)" />
+          <img
+            className="main-image"
+            src={selectedImage.full[800]}
+            alt={displayName}
+            width={800}
+            height={800}
+            loading="lazy"
+            style={{
+              backgroundImage: `url(${selectedImage.full[200]})`,
+            }}
+          />
+        </picture>
 
         <div className="preview-images">
           {imageUrls.map((url, index) => (
             <img
               className={clsx('preview-image', url === selectedImage && 'is-selected')}
               key={index}
-              src={url}
+              src={url.thumbnail[400]}
               alt={displayName}
               width={90}
               height={90}
+              loading="lazy"
               onClick={() => setSelectedImage(url)}
+              style={{
+                backgroundImage: `url(${url.thumbnail[200]})`,
+              }}
             />
           ))}
         </div>

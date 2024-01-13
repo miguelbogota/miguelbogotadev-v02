@@ -85,6 +85,10 @@
       border-radius: 12px;
       max-width: 100%;
       height: auto;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      animation: removeBlur 0.8s ease-in-out;
     }
 
     .preview-images {
@@ -97,6 +101,10 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       padding: var(--space-1);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      animation: removeBlur 0.5s ease-in-out;
 
       @include mixins.small-device {
         max-width: 100%;
