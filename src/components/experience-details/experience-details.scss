@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow: hidden;
     @include background-color(var(--background-main));
 
     &.is-dialog {
@@ -32,6 +33,11 @@
         display: flex;
         align-items: center;
 
+        @include mixins.small-device {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         h1 {
           display: inline-block;
           font-size: clamp(1.4rem, 3.4vw, 1.8rem);
@@ -42,6 +48,7 @@
         .active {
           color: var(--text-disabled);
           margin-left: var(--space-1);
+          font-size: clamp(0.8rem, 2vw, 1rem);
         }
       }
 

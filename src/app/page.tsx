@@ -14,7 +14,7 @@ export default async function Home() {
       <Navigation content={content} />
       <Container as="main">
         <ProfileSection />
-        <WorkSection />
+        <WorkSection content={content} />
         <SocialSection />
       </Container>
       <Footer content={content} />

@@ -29,7 +29,7 @@ export function LoadMoreButton(props: LoadMoreButtonProps) {
 
     setIsLoading(true);
 
-    const res = await fetch(`/api/load-more?after=${formatDate(lastExperience)}`);
+    const res = await fetch(`/api/experience?after=${formatDate(lastExperience)}`);
     const newExperiences = (await res.json()) as Experience[] | { lastRecord: boolean };
 
     if ('lastRecord' in newExperiences) {

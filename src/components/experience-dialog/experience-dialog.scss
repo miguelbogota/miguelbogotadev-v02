@@ -32,8 +32,8 @@
 
     display: block;
     background-color: var(--background-sheet);
-    width: 100dvw;
-    height: 93dvh;
+    width: 100vw;
+    height: 93vh;
     z-index: calc(var(--modal) + 1);
     border-radius: var(--radius) var(--radius) 0px 0px;
     overflow: auto;

@@ -5,17 +5,19 @@ export async function GET(request: Request) {
   const rawParams = request.url.split('?')[1];
 
   if (!rawParams) {
-    throw new Error('Missing `after` parameter.');
+    const experiences = await experienceAction.getAll();
+    return NextResponse.json(experiences);
   }
 
   const params = new URLSearchParams(rawParams);
 
   if (!params.has('after')) {
-    throw new Error('Missing `after` parameter.');
+    const experiences = await experienceAction.getAll();
+    return NextResponse.json(experiences);
   }
 
   const after = params.get('after');
-  const experiences = await experienceAction.loadMore(after ?? '');
+  const experiences = await experienceAction.getAll(after ?? '');
 
   return NextResponse.json(experiences);
 }
