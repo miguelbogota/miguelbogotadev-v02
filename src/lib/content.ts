@@ -1,5 +1,5 @@
-import { environment } from '@app-env';
-import { doc, firestore, getDoc } from '@app-lib/firebase';
+// import { environment } from '@app-env';
+// import { doc, firestore, getDoc } from '@app-lib/firebase';
 
 // import { setDoc } from 'firebase/firestore';
 import { mockedContent } from './content.mock';
@@ -11,10 +11,6 @@ export type AppContent = {
       id: string;
       label: string;
     }[];
-    resume: {
-      url: string;
-      label: string;
-    };
   };
   profile: {
     overline: string;
@@ -51,17 +47,15 @@ export type AppContent = {
   };
 };
 
-const docId = 'Oab3bfxAJMdAyUDL2hjI';
+// const docId = 'Oab3bfxAJMdAyUDL2hjI';
 
 export const getContent = async () => {
-  if (!environment.isProdEnv) {
-    // await setDoc(doc(firestore, 'content', docId), mockedContent);
-    return new Promise<typeof mockedContent>((resolve) =>
-      setTimeout(() => resolve(mockedContent), 1000),
-    );
-  }
+  // await setDoc(doc(firestore, 'content', docId), mockedContent);
+  return new Promise<typeof mockedContent>((resolve) =>
+    setTimeout(() => resolve(mockedContent), 1000),
+  );
 
-  const docRef = doc(firestore, 'content', docId);
-  const docSnapshot = await getDoc(docRef);
-  return docSnapshot.data() as AppContent;
+  // const docRef = doc(firestore, 'content', docId);
+  // const docSnapshot = await getDoc(docRef);
+  // return docSnapshot.data() as AppContent;
 };

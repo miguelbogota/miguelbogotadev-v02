@@ -16,19 +16,19 @@ export type WorkSectionProps = {
 export function WorkSection(props: WorkSectionProps) {
   const { content } = props;
 
-  const [experiences, setExperiences] = useState<Experience[]>([]);
+  // const [experiences, setExperiences] = useState<Experience[]>([]);
 
-  useEffect(() => {
-    if (experiences.length > 0) {
-      return;
-    }
-
-    void (async () => {
-      const res = await fetch('/api/experience');
-      const experiences = (await res.json()) as Experience[];
-      setExperiences(experiences.map((exp) => ({ ...exp, startedAt: new Date(exp.startedAt) })));
-    })();
-  }, [experiences]);
+  // useEffect(() => {
+  //   if (experiences.length > 0) {
+  //     return;
+  //   }
+  //
+  //   void (async () => {
+  //     const res = await fetch('/api/experience');
+  //     const experiences = (await res.json()) as Experience[];
+  //     setExperiences(experiences.map((exp) => ({ ...exp, startedAt: new Date(exp.startedAt) })));
+  //   })();
+  // }, [experiences]);
 
   return (
     <section id="work">
@@ -38,12 +38,17 @@ export function WorkSection(props: WorkSectionProps) {
 
           <p className="overline">{content.work.description}</p>
         </div>
-
-        {experiences.length === 0 ? (
+        {/* {experiences.length === 0 ? (
           <LoadingSpinner />
         ) : (
           <ExperienceList experiences={experiences} content={content} />
-        )}
+        )} */}
+        <div className="deprecation-message">
+          <h3>This page is archived and is no longer updated.</h3>
+          <p>
+            <a href="https://miguelbogota.dev/">Visit the new site</a> to see the latest updates.
+          </p>
+        </div>
       </div>
     </section>
   );

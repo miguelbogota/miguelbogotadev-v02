@@ -34,15 +34,6 @@ export function Navigation(props: NavigationProps) {
               {section.label}
             </NavigationLink>
           ))}
-
-          <NavigationLink
-            className="resume-link"
-            href={content.navigation.resume.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {content.navigation.resume.label}
-          </NavigationLink>
         </div>
       </Container>
     </nav>

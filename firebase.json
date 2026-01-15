@@ -7,14 +7,6 @@
       "frameworksBackend": {
         "region": "us-central1"
       }
-    },
-    {
-      "target": "miguelbogotadev",
-      "source": ".",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "frameworksBackend": {
-        "region": "us-central1"
-      }
     }
   ],
   "emulators": {

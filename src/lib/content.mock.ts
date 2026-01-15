@@ -17,15 +17,11 @@ export const mockedContent: AppContent = {
         label: 'Social',
       },
     ],
-    resume: {
-      url: 'https://firebasestorage.googleapis.com/v0/b/miguelbogotadev.appspot.com/o/Miguel%20Bogota%20Resume.pdf?alt=media&token=d2887f05-f0f2-4b73-bd28-550f52d2f2d9',
-      label: 'Resume',
-    },
   },
   profile: {
     overline: "Hi, I'm Miguel Bogota",
     image: {
-      url: 'https://firebasestorage.googleapis.com/v0/b/miguelbogotadev.appspot.com/o/profile.png?alt=media&token=e5de5af0-61db-4502-ab77-69d2cd4c4ee1',
+      url: '/profile.png',
       alt: "Miguel Bogota's profile picture",
     },
     title: 'Senior Full Stack\nSoftware Engineer\nAnd Designer',
