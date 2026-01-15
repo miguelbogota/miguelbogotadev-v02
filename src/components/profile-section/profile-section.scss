@@ -13,6 +13,17 @@
     grid-template-rows: 1fr;
     padding-top: var(--space-6);
 
+    .information {
+      & > img {
+        border-radius: 50%;
+        margin-bottom: var(--space-3);
+        width: 180px;
+      }
+    }
+
+    .pet {
+    }
+
     @include mixins.small-device {
       margin-bottom: 0px;
       grid-template-columns: 1fr;
@@ -20,16 +31,12 @@
       // TODO(@miguelbogota) Toggle between these two options once the pet is added.
       grid-template-rows: 1fr;
       // grid-template-rows: 1fr 1fr;
-    }
 
-    .information {
-      & > img {
-        border-radius: 50%;
-        margin-bottom: var(--space-3);
+      .information {
+        & > img {
+          width: 120px;
+        }
       }
-    }
-
-    .pet {
     }
   }
 }

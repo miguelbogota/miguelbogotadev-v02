@@ -25,7 +25,7 @@ export const mockedContent: AppContent = {
   profile: {
     overline: "Hi, I'm Miguel Bogota",
     image: {
-      url: 'profile-picture.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/miguelbogotadev.appspot.com/o/profile.png?alt=media&token=e5de5af0-61db-4502-ab77-69d2cd4c4ee1',
       alt: "Miguel Bogota's profile picture",
     },
     title: 'Senior Full Stack\nSoftware Engineer\nAnd Designer',
@@ -63,11 +63,6 @@ export const mockedContent: AppContent = {
         label: 'Instagram profile link',
         icon: 'bx bxl-instagram-alt',
         link: 'https://instagram.com/migue_bogota',
-      },
-      {
-        label: 'Dev.to profile link',
-        icon: 'bx bxl-dev-to',
-        link: 'https://dev.to/miguelbogota',
       },
     ],
   },

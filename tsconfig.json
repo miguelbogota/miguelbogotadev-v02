@@ -1,20 +1,15 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "baseUrl": ".",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -25,37 +20,15 @@
       }
     ],
     "paths": {
-      "@app-components/*": [
-        "src/components/*"
-      ],
-      "@app-hooks/*": [
-        "src/hooks/*"
-      ],
-      "@app-lib/*": [
-        "src/lib/*"
-      ],
-      "@app-utils/*": [
-        "src/utils/*"
-      ],
-      "@app-theme": [
-        "src/theme"
-      ],
-      "@app-env": [
-        "src/environment"
-      ],
-      "@app-test/*": [
-        "test/*"
-      ]
+      "@app-components/*": ["./src/components/*"],
+      "@app-hooks/*": ["./src/hooks/*"],
+      "@app-lib/*": ["./src/lib/*"],
+      "@app-utils/*": ["./src/utils/*"],
+      "@app-theme": ["./src/theme"],
+      "@app-env": ["./src/environment"],
+      "@app-test/*": ["./test/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "build/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "build/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

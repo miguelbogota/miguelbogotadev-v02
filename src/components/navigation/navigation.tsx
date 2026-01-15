@@ -36,6 +36,7 @@ export function Navigation(props: NavigationProps) {
           ))}
 
           <NavigationLink
+            className="resume-link"
             href={content.navigation.resume.url}
             target="_blank"
             rel="noopener noreferrer"

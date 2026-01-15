@@ -10,12 +10,7 @@ export async function ProfileSection() {
     <section id="profile">
       <div className="profile-container">
         <div className="information">
-          <img
-            src={content.profile.image.url}
-            alt={content.profile.image.alt}
-            width={120}
-            height={120}
-          />
+          <img src={content.profile.image.url} alt={content.profile.image.alt} />
 
           <p>{content.profile.overline}</p>
 

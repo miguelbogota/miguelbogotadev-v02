@@ -34,7 +34,13 @@ nav {
       height: 100%;
 
       @include mixins.small-device {
-        display: none;
+        & > .navigation-link {
+          display: none;
+
+          &.resume-link {
+            display: flex;
+          }
+        }
       }
     }
   }
